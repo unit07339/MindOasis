@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MindOasis - 종합 힐링 & 스트레스 해소 라운지</title>
+    <meta name="description" content="5가지 감각적 인터랙션으로 즐기는 종합 스트레스 해소 웹 애플리케이션: 디지털 말랑이, 물멍 파동, 무한 뽁뽁이, 모래 정원, 오르골 별가루">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 편안한 파비콘 SVG -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+</head>
+<body>
+
+    <!-- 몽환적인 배경 오로라 앰비언트 글로우 -->
+    <div class="ambient-background">
+        <div class="ambient-blob ambient-blob-1"></div>
+        <div class="ambient-blob ambient-blob-2"></div>
+        <div class="ambient-blob ambient-blob-3"></div>
+    </div>
+
+    <!-- 상단 글로벌 내비게이션 바 -->
+    <header class="global-navbar">
+        <button class="nav-brand" id="nav-logo-btn" title="메인 화면으로 이동">
+            <span class="nav-logo-icon">🌿</span>
+            <div class="nav-brand-text">
+                <span class="brand-title">MindOasis</span>
+                <span class="brand-desc">힐링 & 스트레스 해소 라운지</span>
+            </div>
+        </button>
+
+        <!-- 5가지 모드 퀵 선택 탭 -->
+        <nav class="nav-center-menu" aria-label="힐링 모드 메뉴">
+            <a href="#squishy" class="nav-mode-link" data-mode="squishy" title="디지털 말랑이">
+                <span>🧸</span> 말랑이
+            </a>
+            <a href="#ripple" class="nav-mode-link" data-mode="ripple" title="고요한 물멍 파동">
+                <span>💧</span> 물멍
+            </a>
+            <a href="#bubble" class="nav-mode-link" data-mode="bubble" title="무한 뽁뽁이">
+                <span>🫧</span> 뽁뽁이
+            </a>
+            <a href="#zen" class="nav-mode-link" data-mode="zen" title="디지털 모래 정원">
+                <span>🎋</span> 모래정원
+            </a>
+            <a href="#stardust" class="nav-mode-link" data-mode="stardust" title="오르골 별가루">
+                <span>✨</span> 별가루
+            </a>
+        </nav>
+
+        <!-- 우측 오디오 및 화면 컨트롤 -->
+        <div class="nav-right-controls">
+            <!-- 힐링 BGM 토글 -->
+            <button class="audio-ctrl-btn" id="btn-global-bgm" title="432Hz 힐링 앰비언스 BGM 켜기/끄기 (단축키: B)">
+                <span class="audio-icon">🎵</span>
+                <span class="audio-label">힐링 BGM</span>
+            </button>
+
+            <!-- 사운드 음소거 토글 -->
+            <button class="audio-ctrl-btn" id="btn-global-mute" title="효과음 음소거 토글 (단축키: M)">
+                <span class="audio-icon">🔊</span>
+                <span class="audio-label">소리 ON</span>
+            </button>
+
+            <!-- 전체화면 토글 -->
+            <button class="audio-ctrl-btn" id="btn-global-fullscreen" title="전체화면 전환">
+                <span class="audio-icon">⛶</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 (SPA 구조) -->
+    <main class="main-app-container" id="app-content">
+
+        <!-- 1. 홈 대시보드 뷰 (Home View) -->
+        <section class="home-container" id="home-view">
+            <!-- 감성 헤더 -->
+            <div class="home-hero-section">
+                <div class="hero-pill-badge">
+                    <span>✨</span> 지친 하루 끝, 온전한 나만의 쉼표
+                </div>
+                <h1 class="hero-main-title">
+                    오늘 어떤 방식으로 <span class="title-gradient">마음을 비우고</span> 싶나요?
+                </h1>
+                <p class="hero-sub-title">
+                    5가지 감각적 인터랙션을 통해 복잡한 생각을 잠시 내려놓고 깊은 이완과 편안함을 느껴보세요.
+                </p>
+
+                <!-- 심호흡 가이드 미니 위젯 -->
+                <div class="breathing-guide-wrapper">
+                    <div class="breath-circle-container">
+                        <div class="breath-circle inhale" id="breathing-guide-circle"></div>
+                    </div>
+                    <div class="breathing-text-box">
+                        <span class="breath-label">4-4-4 마음 안정 심호흡</span>
+                        <span class="breath-desc" id="breathing-guide-text">숨을 깊게 들이마시세요 (들숨)...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5가지 모드 선택 카드 그리드 -->
+            <div class="healing-cards-grid" id="home-cards-grid">
+                <!-- JavaScript에서 동적으로 5개 카드 렌더링 -->
+            </div>
+
+            <!-- 하단 퀵 단축키 안내 -->
+            <div class="home-footer-tips">
+                <span>💡 팁: 숫자 키 <kbd>1</kbd> ~ <kbd>5</kbd>를 눌러 원하는 모드로 즉시 이동할 수 있으며, <kbd>H</kbd> 또는 <kbd>ESC</kbd>로 홈으로 돌아옵니다.</span>
+            </div>
+        </section>
+
+        <!-- 2. 활성화된 모드 전용 스테이지 뷰 (Active Mode View) -->
+        <section class="active-mode-container hidden" id="active-mode-view">
+            <!-- 모드 진입 시 JavaScript에서 헤더 및 캔버스 동적 삽입 -->
+        </section>
+
+    </main>
+
+    <!-- 스크립트 모듈 로드 -->
+    <script src="js/audio.js"></script>
+    <script src="js/modes/squishy.js"></script>
+    <script src="js/modes/ripple.js"></script>
+    <script src="js/modes/bubble.js"></script>
+    <script src="js/modes/zen.js"></script>
+    <script src="js/modes/stardust.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
